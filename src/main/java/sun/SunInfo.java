@@ -1,3 +1,5 @@
+package sun;
+
 public class SunInfo {
 
     //날짜
