@@ -14,7 +14,7 @@
 <br><img src="img/readme_hillshade.png?raw=true"/>{: width="50%" height="50%"}<br>
 
 ### 1. 지형 높이를 알려주는 DEM 데이터
-<br><img src="img/readme_dem.png?raw=true"/>{: width="50%" height="50%"}
+<br><img src="img/readme_dem.png?raw=true"/>
 <br>
 - Black ice에 많은 영향을 미치는 "그늘"에 대한 예측을 도와줍니다. 
 
@@ -23,7 +23,7 @@
 <br>
 
 ### 3. 도로 shape 데이터
-<br><img src="img/readme_demshape.png?raw=true"/>{: width="50%" height="50%"}
+<br><img src="img/readme_road.png?raw=true"/>
 <br>
 <b>알고리즘 원리</b>
 - 동쪽에 높은 산이 있는 지형을 생각해봅시다. 만약 현재 동쪽에 해가 떠 있다면, 이 지형에는 그늘이 뜰 것이라고 짐작할 수 있습니다.
