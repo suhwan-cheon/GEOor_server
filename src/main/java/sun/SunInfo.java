@@ -7,31 +7,31 @@ public class SunInfo {
     //지역
     String location;
     //경도
-    String longitude;
+    Double longitude;
     //경도(10진수)
-    String longitudeNum;
+    Double longitudeNum;
     //위도
-    String latitude;
+    Double latitude;
     //위도(10진수)
-    String latitudeNum;
+    Double latitudeNum;
     //9시 방위각
-    String azimuth_09;
+    Double azimuth_09;
     //9시 고도
-    String altitude_09;
+    Double altitude_09;
     //12시 방위각
-    String azimuth_12;
+    Double azimuth_12;
     //12시 고도
-    String altitude_12;
+    Double altitude_12;
     //15시 방위각
-    String azimuth_15;
+    Double azimuth_15;
     //15시 고도
-    String altitude_15;
+    Double altitude_15;
     //18시 방위각
-    String azimuth_18;
+    Double azimuth_18;
     //18시 고도
-    String altitude_18;
+    Double altitude_18;
     //남중 고도
-    String altitudeMeridian;
+    Double altitudeMeridian;
 
     /* 고정 변수 */
     //페이지당 항목수
@@ -41,7 +41,7 @@ public class SunInfo {
 
     /* Constructor */
 
-    public SunInfo(String locdate, String location, String longitude, String longitudeNum, String latitude, String latitudeNum, String azimuth_09, String altitude_09, String azimuth_12, String altitude_12, String azimuth_15, String altitude_15, String azimuth_18, String altitude_18, String altitudeMeridian) {
+    public SunInfo(String locdate, String location, Double longitude, Double longitudeNum, Double latitude, Double latitudeNum, Double azimuth_09, Double altitude_09, Double azimuth_12, Double altitude_12, Double azimuth_15, Double altitude_15, Double azimuth_18, Double altitude_18, Double altitudeMeridian) {
         this.locdate = locdate;
         this.location = location;
         this.longitude = longitude;
@@ -69,55 +69,55 @@ public class SunInfo {
         return location;
     }
 
-    public String getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public String getLongitudeNum() {
+    public Double getLongitudeNum() {
         return longitudeNum;
     }
 
-    public String getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
-    public String getLatitudeNum() {
+    public Double getLatitudeNum() {
         return latitudeNum;
     }
 
-    public String getAzimuth_09() {
+    public Double getAzimuth_09() {
         return azimuth_09;
     }
 
-    public String getAltitude_09() {
+    public Double getAltitude_09() {
         return altitude_09;
     }
 
-    public String getAzimuth_12() {
+    public Double getAzimuth_12() {
         return azimuth_12;
     }
 
-    public String getAltitude_12() {
+    public Double getAltitude_12() {
         return altitude_12;
     }
 
-    public String getAzimuth_15() {
+    public Double getAzimuth_15() {
         return azimuth_15;
     }
 
-    public String getAltitude_15() {
+    public Double getAltitude_15() {
         return altitude_15;
     }
 
-    public String getAzimuth_18() {
+    public Double getAzimuth_18() {
         return azimuth_18;
     }
 
-    public String getAltitude_18() {
+    public Double getAltitude_18() {
         return altitude_18;
     }
 
-    public String getAltitudeMeridian() {
+    public Double getAltitudeMeridian() {
         return altitudeMeridian;
     }
 }

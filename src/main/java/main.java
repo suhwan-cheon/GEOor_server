@@ -24,9 +24,7 @@ public class main {
         * 날짜, 위도, 경도, 10진수 여부
         * 자세한 설명은 getSunInfoXml 내부 참조
         * */
-        String sunXml = sc.getSunInfoXml("20150101", "12659", "3734", "N");
-        //받은 xml parser
-        SunInfo si = sc.getSunInfo(sunXml);
+        SunInfo si = sc.getSunInfoXml("20150101", "12659", "3734", "N");
 
         //테스트 코드
         System.out.println(si.getAltitude_09());
