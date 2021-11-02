@@ -9,7 +9,7 @@ import org.xml.sax.SAXException;
 
 public class SunApiController {
     //api 호출 함수 (String 형태의 xml 반환)
-    public String getSunInfoXml(String locdate, String latitude, String longitude, String dnYn) throws IOException{
+    public SunInfo getSunInfoXml(String locdate, String latitude, String longitude, String dnYn) throws IOException, ParserConfigurationException, SAXException {
 
         final String serviceKey = "mfnlHHjaj4zfqSUXTbi%2FoYlQEkYX%2Bk3COHTUxCBNqBKPeIQw7GbQNNUp6H5bLRkAOgZrhXQXeVHLf1PPTQfT3Q%3D%3D";
 
@@ -46,10 +46,12 @@ public class SunApiController {
 
         xml = resultLine.toString();
 
-        return xml;
+        SunInfo si = getSunInfo(xml);
+
+        return si;
     }
 
-    public SunInfo getSunInfo(String xml) throws ParserConfigurationException, IOException, SAXException {
+    private SunInfo getSunInfo(String xml) throws ParserConfigurationException, IOException, SAXException {
         // xml을 파싱해주는 객체를 생성
         DocumentBuilderFactory factory = DocumentBuilderFactory
                 .newInstance();
@@ -65,24 +67,37 @@ public class SunApiController {
 
         String locdate = element.getElementsByTagName("locdate").item(0).getFirstChild().getNodeValue();
         String location = element.getElementsByTagName("location").item(0).getFirstChild().getNodeValue();
-        String longitude = element.getElementsByTagName("longitude").item(0).getFirstChild().getNodeValue();
-        String longitudeNum = element.getElementsByTagName("longitudeNum").item(0).getFirstChild().getNodeValue();
-        String latitude = element.getElementsByTagName("latitude").item(0).getFirstChild().getNodeValue();
-        String latitudeNum = element.getElementsByTagName("latitudeNum").item(0).getFirstChild().getNodeValue();
-        String azimuth_09 = element.getElementsByTagName("azimuth_09").item(0).getFirstChild().getNodeValue();
-        String altitude_09 = element.getElementsByTagName("altitude_09").item(0).getFirstChild().getNodeValue();
-        String azimuth_12 = element.getElementsByTagName("azimuth_12").item(0).getFirstChild().getNodeValue();
-        String altitude_12 = element.getElementsByTagName("altitude_12").item(0).getFirstChild().getNodeValue();
-        String azimuth_15 = element.getElementsByTagName("azimuth_15").item(0).getFirstChild().getNodeValue();
-        String altitude_15 = element.getElementsByTagName("altitude_15").item(0).getFirstChild().getNodeValue();
-        String azimuth_18 = element.getElementsByTagName("azimuth_18").item(0).getFirstChild().getNodeValue();
-        String altitude_18 = element.getElementsByTagName("altitude_18").item(0).getFirstChild().getNodeValue();
-        String altitudeMeridian = element.getElementsByTagName("altitudeMeridian").item(0).getFirstChild().getNodeValue();
+        Double longitude = Double.valueOf(element.getElementsByTagName("longitude").item(0).getFirstChild().getNodeValue());
+        Double longitudeNum = Double.valueOf(element.getElementsByTagName("longitudeNum").item(0).getFirstChild().getNodeValue());
+        Double latitude = Double.valueOf(element.getElementsByTagName("latitude").item(0).getFirstChild().getNodeValue());
+        Double latitudeNum = Double.valueOf(element.getElementsByTagName("latitudeNum").item(0).getFirstChild().getNodeValue());
+        Double azimuth_09 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_09").item(0).getFirstChild().getNodeValue()));
+        Double altitude_09 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_09").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_12 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_12").item(0).getFirstChild().getNodeValue()));
+        Double altitude_12 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_12").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_15 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_15").item(0).getFirstChild().getNodeValue()));
+        Double altitude_15 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_15").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_18 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_18").item(0).getFirstChild().getNodeValue()));
+        Double altitude_18 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_18").item(0).getFirstChild().getNodeValue()));
+        Double altitudeMeridian = Double.valueOf(degreeToStr(element.getElementsByTagName("altitudeMeridian").item(0).getFirstChild().getNodeValue()));
 
         SunInfo ret = new SunInfo(locdate, location, longitude, longitudeNum,
                 latitude, latitudeNum, azimuth_09, altitude_09, azimuth_12,
                 altitude_12, azimuth_15, altitude_15, azimuth_18, altitude_18, altitudeMeridian);
 
+        return ret;
+    }
+
+    private String degreeToStr(String deg){
+        String ret = "";
+        for(int i=0; i<deg.length(); i++){
+            if(i == 0 && deg.charAt(0) == '-') {
+                ret += '-';
+                continue;
+            }
+            else if('0' <= deg.charAt(i) && deg.charAt(i) <= '9') ret += deg.charAt(i);
+            else if(deg.charAt(i) == '˚') ret += '.';
+        }
         return ret;
     }
 }
