@@ -71,20 +71,33 @@ public class SunApiController {
         Double longitudeNum = Double.valueOf(element.getElementsByTagName("longitudeNum").item(0).getFirstChild().getNodeValue());
         Double latitude = Double.valueOf(element.getElementsByTagName("latitude").item(0).getFirstChild().getNodeValue());
         Double latitudeNum = Double.valueOf(element.getElementsByTagName("latitudeNum").item(0).getFirstChild().getNodeValue());
-        Double azimuth_09 = Double.valueOf(element.getElementsByTagName("azimuth_09").item(0).getFirstChild().getNodeValue());
-        Double altitude_09 = Double.valueOf(element.getElementsByTagName("altitude_09").item(0).getFirstChild().getNodeValue());
-        Double azimuth_12 = Double.valueOf(element.getElementsByTagName("azimuth_12").item(0).getFirstChild().getNodeValue());
-        Double altitude_12 = Double.valueOf(element.getElementsByTagName("altitude_12").item(0).getFirstChild().getNodeValue());
-        Double azimuth_15 = Double.valueOf(element.getElementsByTagName("azimuth_15").item(0).getFirstChild().getNodeValue());
-        Double altitude_15 = Double.valueOf(element.getElementsByTagName("altitude_15").item(0).getFirstChild().getNodeValue());
-        Double azimuth_18 = Double.valueOf(element.getElementsByTagName("azimuth_18").item(0).getFirstChild().getNodeValue());
-        Double altitude_18 = Double.valueOf(element.getElementsByTagName("altitude_18").item(0).getFirstChild().getNodeValue());
-        Double altitudeMeridian = Double.valueOf(element.getElementsByTagName("altitudeMeridian").item(0).getFirstChild().getNodeValue());
+        Double azimuth_09 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_09").item(0).getFirstChild().getNodeValue()));
+        Double altitude_09 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_09").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_12 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_12").item(0).getFirstChild().getNodeValue()));
+        Double altitude_12 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_12").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_15 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_15").item(0).getFirstChild().getNodeValue()));
+        Double altitude_15 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_15").item(0).getFirstChild().getNodeValue()));
+        Double azimuth_18 = Double.valueOf(degreeToStr(element.getElementsByTagName("azimuth_18").item(0).getFirstChild().getNodeValue()));
+        Double altitude_18 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_18").item(0).getFirstChild().getNodeValue()));
+        Double altitudeMeridian = Double.valueOf(degreeToStr(element.getElementsByTagName("altitudeMeridian").item(0).getFirstChild().getNodeValue()));
 
         SunInfo ret = new SunInfo(locdate, location, longitude, longitudeNum,
                 latitude, latitudeNum, azimuth_09, altitude_09, azimuth_12,
                 altitude_12, azimuth_15, altitude_15, azimuth_18, altitude_18, altitudeMeridian);
 
+        return ret;
+    }
+
+    private String degreeToStr(String deg){
+        String ret = "";
+        for(int i=0; i<deg.length(); i++){
+            if(i == 0 && deg.charAt(0) == '-') {
+                ret += '-';
+                continue;
+            }
+            else if('0' <= deg.charAt(i) && deg.charAt(i) <= '9') ret += deg.charAt(i);
+            else if(deg.charAt(i) == '˚') ret += '.';
+        }
         return ret;
     }
 }
