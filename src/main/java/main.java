@@ -14,8 +14,8 @@ public class main {
     private static final ApplicationProperties applicationProperties = new ApplicationProperties();
 
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-        ShpMain shpMain = new ShpMain();
-        shpMain.run();
+        //ShpMain shpMain = new ShpMain();
+        //shpMain.run();
 
         //sun api 호출 & parser 부분
         SunApiController sc = new SunApiController();
@@ -26,12 +26,12 @@ public class main {
         * 자세한 설명은 getSunInfoXml 내부 참조
         * */
 
-        Dem dem = new Dem("C:/Users/suhwan/Desktop/test.xyz");
+        //Dem dem = new Dem("C:/Users/suhwan/Desktop/test.xyz");
 
         SunInfo si = sc.getSunInfoXml("20150101", "12659", "3734", "N");
 
 
         //테스트 코드
-        System.out.println(si.getAltitude_18());
+        System.out.println(si.toString());
     }
 }

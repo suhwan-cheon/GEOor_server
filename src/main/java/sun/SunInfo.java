@@ -39,6 +39,29 @@ public class SunInfo {
     //페이지
     Integer pageNo = 1;
 
+    @Override
+    public String toString() {
+        return "SunInfo{" +
+                "locdate='" + locdate + '\'' +
+                ", location='" + location + '\'' +
+                ", longitude=" + longitude +
+                ", longitudeNum=" + longitudeNum +
+                ", latitude=" + latitude +
+                ", latitudeNum=" + latitudeNum +
+                ", azimuth_09=" + azimuth_09 +
+                ", altitude_09=" + altitude_09 +
+                ", azimuth_12=" + azimuth_12 +
+                ", altitude_12=" + altitude_12 +
+                ", azimuth_15=" + azimuth_15 +
+                ", altitude_15=" + altitude_15 +
+                ", azimuth_18=" + azimuth_18 +
+                ", altitude_18=" + altitude_18 +
+                ", altitudeMeridian=" + altitudeMeridian +
+                ", numOfRows=" + numOfRows +
+                ", pageNo=" + pageNo +
+                '}';
+    }
+
     /* Constructor */
 
     public SunInfo(String locdate, String location, Double longitude, Double longitudeNum, Double latitude, Double latitudeNum, Double azimuth_09, Double altitude_09, Double azimuth_12, Double altitude_12, Double azimuth_15, Double altitude_15, Double azimuth_18, Double altitude_18, Double altitudeMeridian) {
