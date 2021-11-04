@@ -1,3 +1,5 @@
+package Algorithms;
+
 import sun.SunInfo;
 
 import java.util.ArrayList;
