@@ -2,6 +2,7 @@ import config.ApplicationProperties;
 import dem.DemController;
 import dem.DemInfo;
 import dem.DemService;
+import macro.MousePointerTest;
 import org.xml.sax.SAXException;
 import sun.SunService;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,7 +18,8 @@ public class main {
     private static SunService sun = new SunService();
 
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
-        //ShpMain shpMain = new ShpMain();
+        
+        /*//ShpMain shpMain = new ShpMain();
         //shpMain.run();
 
         dem.run();
@@ -29,5 +31,13 @@ public class main {
         sun.set();
         sun.get();
         sun.test1();
+        
+         */
+        
+        dem.run();
+        
+        // mouse point 테스트 코드
+        MousePointerTest mpt = new MousePointerTest();
+        mpt.test();
     }
 }
