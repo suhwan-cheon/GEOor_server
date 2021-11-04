@@ -1,9 +1,12 @@
 import config.ApplicationProperties;
+import dem.DemController;
+import dem.DemInfo;
 import dem.DemService;
 import org.xml.sax.SAXException;
 import sun.SunService;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class main {
 
@@ -18,6 +21,10 @@ public class main {
         //shpMain.run();
 
         dem.run();
+
+        ArrayList<ArrayList<DemInfo>> arr = dem.getDEM();
+        System.out.println(arr.get(0).get(1).getX()); // 테스트 코드
+    
 
         sun.run();
         sun.set();
