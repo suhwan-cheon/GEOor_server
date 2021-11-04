@@ -28,7 +28,7 @@ public class main {
 
         //Dem dem = new Dem("C:/Users/suhwan/Desktop/test.xyz");
 
-        SunInfo si = sc.getSunInfoXml("20190301", "12874", "3775", "y");
+        SunInfo si = sc.getSunInfoXml("20150101", "12659", "3734", "N");
 
 
         //테스트 코드
