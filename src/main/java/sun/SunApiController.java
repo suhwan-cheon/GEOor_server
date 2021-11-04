@@ -91,10 +91,7 @@ public class SunApiController {
     private String degreeToStr(String deg){
         String ret = "";
         for(int i=0; i<deg.length(); i++){
-            if(i == 0 && deg.charAt(0) == '-') {
-                ret += '-';
-                continue;
-            }
+            if(i == 0 && deg.charAt(0) == '-') ret += '-';
             else if('0' <= deg.charAt(i) && deg.charAt(i) <= '9') ret += deg.charAt(i);
             else if(deg.charAt(i) == '˚') ret += '.';
         }
