@@ -18,8 +18,6 @@ public class Crawler {
 	private String lng = "128.75902562744776";
 	private String date = "2021-11-04";
 	
-	private ArrayList<>
-	
 	public void run(){
 		WebDriver driver = null;
 		WebElement element = null;
