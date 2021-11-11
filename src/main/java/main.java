@@ -1,5 +1,10 @@
 import config.ApplicationProperties;
+import crawling.Crawler;
+import dem.DemController;
+import dem.DemInfo;
 import dem.DemService;
+import macro.MousePointerTest;
+import macro.Selenium;
 import org.xml.sax.SAXException;
 import sun.SunService;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,6 +20,7 @@ public class main {
     private static SunService sun = new SunService();
 
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException {
+        
         //ShpMain shpMain = new ShpMain();
         //shpMain.run();
 
@@ -27,5 +33,12 @@ public class main {
         sun.set();
         sun.get();
         sun.test1();
+        
+        
+        dem.run();
+       
+    
+        Crawler crawler = new Crawler();
+        crawler.run();
     }
 }
