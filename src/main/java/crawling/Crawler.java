@@ -24,7 +24,7 @@ public class Crawler {
 		
 		try {
 			// drvier 설정 - resource에 넣어놓음
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
 			// Chrome 드라이버 인스턴스 설정
 			driver = new ChromeDriver();
 			
