@@ -92,9 +92,8 @@ public class SunController {
         Double altitude_18 = Double.valueOf(degreeToStr(element.getElementsByTagName("altitude_18").item(0).getFirstChild().getNodeValue()));
         Double altitudeMeridian = Double.valueOf(degreeToStr(element.getElementsByTagName("altitudeMeridian").item(0).getFirstChild().getNodeValue()));
 
-        SunInfo ret = new SunInfo(locdate, location, longitude, longitudeNum,
-                latitude, latitudeNum, azimuth_09, altitude_09, azimuth_12,
-                altitude_12, azimuth_15, altitude_15, azimuth_18, altitude_18, altitudeMeridian);
+        SunInfo ret = new SunInfo(0, altitude_09, azimuth_12,
+                altitude_12, azimuth_15);
 
         return ret;
     }
