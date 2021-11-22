@@ -35,13 +35,13 @@ public class HillshadeAlgorithm {
                 }
 
                 // (2) Zenith_deg = 90 - Altitude
-                Double Zenith_deg = 90 - si.get(i).get(j).getAltitude_09();
+                Double Zenith_deg = 90 - si.get(i).get(j).getAltitude();
 
                 // (3) Zenith_rad = Zenith * pi / 180.0
                 Double Zenith_rad = (Zenith_deg * Math.PI) / 180.0;
 
                 // (4) Azimuth_math = 360.0 - Azimuth + 90
-                Double Azimuth_math = 360.0 - si.get(i).get(j).getAzimuth_09();
+                Double Azimuth_math = 360.0 - si.get(i).get(j).getAzimuth();
 
                 // (5) if Azimuth_math >= 360.0, then: Azimuth_math = Azimuth_math - 360.0
                 if(Azimuth_math >= 360.0) Azimuth_math = Azimuth_math - 360.0;

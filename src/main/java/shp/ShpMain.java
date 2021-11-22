@@ -1,10 +1,12 @@
 package shp;
 
+import static config.ApplicationProperties.getProperty;
+
 public class ShpMain {
 
-    public void run() {
-        Shp shp = new Shp("/NF_A_A01000_A_A01000_000000.shp");
+    public void run() throws Exception {
+        Shp shp = new Shp(getProperty("shp.fileName"));
         ShpMapper shpMapper = new ShpMapper(shp);
-        shpMapper.printAttributes();
+        shpMapper.printAttributes(0, 0);
     }
 }
