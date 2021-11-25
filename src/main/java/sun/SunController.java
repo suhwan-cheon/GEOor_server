@@ -59,7 +59,7 @@ public class SunController {
 
                 for(int x=pre_x; x<index_x; x++){
                     for(int y=pre_y; y<index_y;y++){
-                        tf = new TransformCoordinate(dem.get(x).get(y).getX(), dem.get(x).get(y).getY());
+                        tf = new TransformCoordinate(dem.get(x).get(y).getY(), dem.get(x).get(y).getX());
                         SunInfo tmp = new SunInfo(dem.get(x).get(y).getX(), dem.get(x).get(y).getY(),
                                 tf.getLatitude(), tf.getLongitude(), time, si.get(time).getAzimuth(),
                                 si.get(time).getAltitude(), si.get(time).getAscension(), si.get(time).getDeclination());

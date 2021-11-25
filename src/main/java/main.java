@@ -17,7 +17,6 @@ public class main {
     private static TransformCoordinate tf;
 
     public static void main(String[] args){
-
         /**
             dem api 호출 부분
             반환 값 : 253 x 314 모양의 2차원 ArrayList
@@ -37,7 +36,7 @@ public class main {
             4) 변환된 고도각을 똑같이 2차원 SunInfo ArrayList의 사각형에 위치한 곳으로 모두 채운다.
          */
         int k = 2; //k등분으로 태양고도각 크롤링 (크롤링 횟수 조절을 위함)
-        int t = 9; //태양고도각 시각 (0 ~ 23 사이 정수만 가능함)
+        int t = 0; //태양고도각 시각 (0 ~ 23 사이 정수만 가능함)
         sun.run(demArr, k, t);
 
         /**
@@ -51,6 +50,14 @@ public class main {
          */
         HillshadeAlgorithm hs = new HillshadeAlgorithm();
         ArrayList<ArrayList<Hillshade>> hsArr = hs.hsConverter(sun.get(), dem.getDEM());
-        System.out.println(hsArr.toString()); // 테스트 코드
+
+
+
+        for(int i=220; i<230; i++){
+            for(int j=1; j<10; j++){
+                System.out.println(hsArr.get(i).get(j).toString()); // 테스트 코드
+            }
+            System.out.println("\n");
+        }
     }
 }
