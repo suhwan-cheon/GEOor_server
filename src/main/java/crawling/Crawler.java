@@ -18,18 +18,20 @@ public class Crawler {
 	
 	private String url = "https://astro.kasi.re.kr/life/pageView/10";
 	private String address = "crawl";
-//	private String lat = "37.69134601495178";
-//	private String lng = "128.75902562744776";
+	private Double latitude, longitude;
+	private int x_dir, y_dir;
 	private String date = "2021-11-04";
 	private ArrayList<SunInfo> si = new ArrayList<>();
 	
-	public void run(Double lat, Double lng){
+	public void run(Double lat, Double lng, int x, int y){
 		WebDriver driver = null;
 		WebElement element = null;
+
+		latitude = lat; longitude = lng; x_dir = x; y_dir = y;
 		
 		try {
 			// drvier 설정 - resource에 넣어놓음
-			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
 			// Chrome 드라이버 인스턴스 설정
 			// Chrome 드라이버 인스턴스 설정
 			ChromeOptions chromeOptions = new ChromeOptions();
@@ -66,7 +68,7 @@ public class Crawler {
 	private void crawlerParsing(List<WebElement> arr){
 		for(int i = 0; i < arr.size(); i++){
 			List<String> strings = Arrays.asList(arr.get(i).getText().split(" "));
-			SunInfo s = new SunInfo(0,0D,0D,0D,0D);
+			SunInfo s = new SunInfo(0, 0, 0D, 0D, 0,0D,0D,0D,0D);
 			s.setTime(i);
 			for(int k = 1; k <= 12; k += 3){
 				Double degree = Double.parseDouble(strings.get(k));
@@ -80,6 +82,9 @@ public class Crawler {
 				else if (k == 4) s.setAltitude(degree);
 				else if (k == 7) s.setAscension(t);
 				else s.setDeclination(degree);
+
+				s.setLatitude(latitude); s.setLongitude(longitude);
+				s.setX(x_dir); s.setY(y_dir);
 			}
 			si.add(s);
 		}

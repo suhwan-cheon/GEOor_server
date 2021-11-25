@@ -2,23 +2,63 @@ package sun;
 
 public class SunInfo {
 
+    //x, y좌표
+    private int x, y;
+    //위도, 경도
+    private Double latitude, longitude;
     //시각
-    Integer time;
+    private Integer time;
     //방위각
-    Double azimuth;
+    private Double azimuth;
     //고도
-    Double altitude;
+    private Double altitude;
     //적경
-    Double ascension;
+    private Double ascension;
     //적위
-    Double declination;
+    private Double declination;
 
-    public SunInfo(Integer time, Double azimuth, Double altitude, Double ascension, Double declination) {
+    public SunInfo(int x, int y, Double latitude, Double longitude, Integer time, Double azimuth, Double altitude, Double ascension, Double declination) {
+        this.x = x;
+        this.y = y;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.time = time;
         this.azimuth = azimuth;
         this.altitude = altitude;
         this.ascension = ascension;
         this.declination = declination;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public Integer getTime() {
@@ -64,7 +104,11 @@ public class SunInfo {
     @Override
     public String toString() {
         return "SunInfo{" +
-                "time=" + time +
+                "x=" + x +
+                ", y=" + y +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", time=" + time +
                 ", azimuth=" + azimuth +
                 ", altitude=" + altitude +
                 ", ascension=" + ascension +
